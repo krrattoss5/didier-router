@@ -1,40 +1,9 @@
 import { useEffect, useState } from "react"
 import {EVENTS} from './consts.js'
+import HomePage from './pages/Home.jsx'
+import AboutPage from './pages/About.jsx'
 
-function navigate(href){
-  window.history.pushState({}, '', href)
-  //CREAR EVENTO PERSONALIZADO
-  const navigationEvent = new Event(EVENTS.PUSHSTATE)
-  //ENVIAR EL EVENTO
-  window.dispatchEvent(navigationEvent)
-}
 
-function HomePage() {
-
-  return (
-    <>
-      <h1>Home</h1>
-      <p>Esta es una página de ejemplo para crear un React Router desde cero.</p>
-      <a href="/about">Ir a sobre nosotros.</a>
-      <br />
-      <button onClick={() => navigate('/about')}>move</button>
-    </>
-  )
-
-}
-
-function AboutPage() {
-
-  return (
-    <>
-      <h1>About</h1>
-      <p>¡Hola! esto es una replica de Reacty Router.</p>
-      <a href="/">Ir al Home.</a>
-      <br />
-      <button onClick={() => navigate('/')}>move</button>
-    </>
-  )
-}
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
