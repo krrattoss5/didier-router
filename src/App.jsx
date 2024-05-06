@@ -17,7 +17,7 @@ function App() {
 
   return (
     <main>
-      <Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
         <Router routes={routes}>
           <Route path='/' Component={HomePage} />
           <Route path='/about' Component={AboutPage} />
